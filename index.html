@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim Tecnológico</title>
+    <style>
+       body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(135deg, #333, #000);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.edition-info {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    margin: 15px 0;
+}
+
+.section-title {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Configuração das seções para centralizar os cards */
+.main-section, .innovation-section, .deu-ruim-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards horizontalmente */
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px; /* Define uma largura fixa para os cards */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Estilos para os modais */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 60%;
+    height: 80%;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #333;
+}
+
+.modal-content img {
+    width: 80%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #333;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Estilos responsivos */
+@media (max-width: 1024px) {
+    .modal-content {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-section, .innovation-section, .deu-ruim-section {
+        flex-direction: column;
+        align-items: center; /* Centraliza os cards em telas pequenas */
+    }
+
+    .card h2 {
+        font-size: 16px;
+    }
+
+    .card img {
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .modal-content {
+        width: 95%;
+        height: 90%;
+        padding: 15px;
+    }
+
+    .modal-content h2 {
+        font-size: 20px;
+    }
+
+    .modal-content p {
+        font-size: 16px;
+        text-align: left;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Boletim Tecnológico</h1>
+</header>
+
+<div class="edition-info">
+    <p>Edição de 07/12/2024</p>
+</div>
+
+<!-- Estrutura de seções -->
+<h2 class="section-title">Inteligência Artificial</h2>
+<div class="main-section">
+    <div class="card" id="card1">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/08/codigo_computador_brasil-e1733763510333-2048x1154.jpg" >
+        <h2>Terror das big techs! Brasil pode ter as regras mais duras para plataformas</h2>
+    </div> 
+
+            <div class="card" id="card2">
+            <img src="https://img.odcdn.com.br/wp-content/uploads/2024/06/IA-conversando-com-um-humano-1-1920x1080.png" >
+            <h2>IA é capaz de replicar personalidade humana em apenas duas horas</h2>
+        </div> 
+        
+        <div class="card" id="card3">
+            <img src="https://img.odcdn.com.br/wp-content/uploads/2024/09/shutterstock_2372541033.jpg" >
+            <h2>Com IA, Google revoluciona meteorologia</h2>
+        </div>      
+</div>
+<br>
+<h2 class="section-title">Deu Ruim?</h2>
+<div class="innovation-section">
+    <div class="card" id="card4">
+        <img src="https://tm.ibxk.com.br/2024/12/03/03143943771404.jpg?ims=1280x480" >
+        <h2> Ex-CEO do Google alerta que meninos estão trocando mulheres por namoradas de IA</h2>
+    </div> 
+
+    <div class="card" id="card5">
+        <img src="https://s2-g1.glbimg.com/iNWbz_bf21zrhng70WMk1B4apbw=/0x0:800x553/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2024/H/0/FuAQv7SrOwCoF12Hr6FA/ministerio-publico-do-am-notifica-operadoras-de-telefonia-por-apagao-de-sinal-e-internet-em-coari-foto-divulgacao-mpam.png" >
+        <h2>Anatel libera mudança de preço durante vigência de planos de celular, internet e TV por assinatura</h2>
+    </div> 
+
+    <div class="card" id="card6">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/06/ia_cantando_musica-1-2048x2048.jpg" >
+        <h2>IA deve gerar prejuízo bilionário para os músicos</h2>
+    </div>
+
+    <div class="card" id="card7">
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/11/chatgpt_gpt_1-e1733423903455-1024x577.jpg" >
+        <h2>OpenAI lança plano caríssimo com acesso ao "poder total" da IA</h2>
+    </div>
+</div>
+<br>
+<h2 class="section-title">Inovação Tecnológica</h2>
+<div class="innovation-section">
+    <div class="card" id="card8">
+        <img src="https://t.ctcdn.com.br/v19MN3tdDE3nuFtegldWSnwA9eg=/1024x576/smart/i850391.jpeg" >
+        <h2>Intel Foundry apresenta avanços importantes em interconexões de chips</h2>
+    </div>
+
+    <div class="card" id="card9">
+        <img src="https://t.ctcdn.com.br/W2RrTUOlCIRhkZrgh7fW-w7PuoA=/1024x576/smart/i929165.jpeg" >
+        <h2>Starlink quer colocar mais satélites sobre o Brasil</h2>
+    </div>
+
+    <div class="card" id="card10">
+        <img src="https://t.ctcdn.com.br/KJiJGTRCmae_KBZ5iZzFUfcQsKQ=/1024x576/smart/i340802.jpeg" >
+        <h2>Brasil dá passo estratégico para criar o 6G com novo centro de testes</h2>
+    </div>
+
+</div>   
+
+
+
+
+<!-- Modais -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Brasil lidera discussões globais sobre regulação de grandes plataformas digitais</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/08/codigo_computador_brasil-e1733763510333-2048x1154.jpg" alt="Imagem representativa sobre regulação digital">
+        <p>O Brasil está no centro das discussões globais sobre a regulação das grandes plataformas digitais. Enquanto países como EUA, União Europeia, Reino Unido e Índia analisam medidas para responsabilizar as big techs, o Brasil se destaca ao propor que conteúdos sejam removidos antes mesmo de ordens judiciais ou notificações extrajudiciais, algo inédito entre as principais economias.</p>
+
+        <strong>Divergências globais:</strong>
+        <p><strong>EUA:</strong> Debate polarizado. Republicanos acusam as plataformas de "censura excessiva", enquanto democratas pedem maior regulação e restrições à imunidade dessas empresas.</p>
+        <p><strong>União Europeia:</strong> Adota o modelo "notice and action", que exige ações rápidas das plataformas após notificações.</p>
+        <p><strong>Reino Unido:</strong> Enfatiza transparência, exigindo relatórios detalhados sobre cumprimento de regras.</p>
+        <p><strong>Índia:</strong> Implementa restrições graduais à imunidade das plataformas.</p>
+
+        <strong>Brasil e o Marco Civil da Internet:</strong>
+        <p>No Supremo Tribunal Federal (STF), a análise do Marco Civil da Internet é marcada por propostas de mudanças significativas. Atualmente, as plataformas só são responsabilizadas após decisões judiciais. A tese defendida pelo ministro Dias Toffoli e pela Advocacia-Geral da União sugere:</p>
+        <ul>
+            <li><strong>Responsabilidade objetiva:</strong> As plataformas seriam responsabilizadas automaticamente por crimes graves, como racismo, terrorismo, violência contra crianças e atos contra o Estado democrático.</li>
+            <li><strong>Monitoramento ativo:</strong> Proposta inclui o dever das plataformas de monitorar e remover conteúdos ilícitos de forma preventiva.</li>
+        </ul>
+        <p>O artigo 19 do Marco Civil, que protege as plataformas de responsabilização antes de ordens judiciais, foi declarado inconstitucional pelo ministro Toffoli, que defendeu maior controle sobre os conteúdos postados por usuários.</p>
+
+        <strong>Próximos passos:</strong>
+        <p>O julgamento será retomado no STF na quarta-feira (11), com o voto do ministro Luiz Fux, podendo definir o futuro da regulação digital no Brasil.</p>
+
+        <strong>Em perspectiva:</strong>
+        <p>A possível adoção de medidas mais rígidas no Brasil coloca o país na vanguarda do debate global sobre responsabilidade digital, mas também levanta questionamentos sobre liberdade de expressão e os desafios para a implementação dessas regras.</p>
+        
+    </div>
+</div>
+
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>IA replica personalidades humanas com 85% de precisão</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/06/IA-conversando-com-um-humano-1-1920x1080.png" alt="Imagem representativa sobre a replicação de personalidades por IA">
+        <p>Pesquisadores da Universidade de Stanford e do Google DeepMind realizaram um experimento que demonstrou a capacidade de uma inteligência artificial replicar personalidades humanas com surpreendente precisão. Após uma entrevista de cerca de duas horas, os resultados mostraram que as respostas geradas pela IA apresentaram 85% de semelhança com as de humanos reais.</p>
+
+        <strong>Como o estudo foi conduzido:</strong>
+        <p><strong>Participantes:</strong> 1.052 voluntários compartilharam suas histórias de vida e opiniões sobre questões sociais.</p>
+        <p><strong>Processo:</strong> As entrevistas foram gravadas e usadas para criar "agentes de simulação" — versões digitais das personalidades humanas.</p>
+        <p><strong>Comparação:</strong> As respostas dos agentes foram comparadas com as dos participantes originais, revelando uma alta correspondência no comportamento e nos pensamentos simulados.</p>
+
+        <strong>Potenciais e preocupações:</strong>
+        <p>A capacidade de uma IA replicar traços humanos pode revolucionar áreas como pesquisa científica e simulações sociais, eliminando a necessidade de voluntários humanos em certos estudos. No entanto, a tecnologia levanta questões éticas:</p>
+        <ul>
+            <li><strong>Precisão limitada:</strong> Com 85% de acerto, ainda há margem para erros que podem levar a decisões não alinhadas ao comportamento humano.</li>
+            <li><strong>Riscos de abuso:</strong> Tecnologias como esta podem tornar deepfakes mais realistas, dificultando a identificação de fraudes digitais.</li>
+        </ul>
+
+        <strong>Implicações éticas:</strong>
+        <p>Embora promissor, o avanço gera dilemas sobre privacidade e o uso responsável de simulações. Especialistas alertam que, mesmo com resultados impressionantes, os dados usados para replicar personalidades são representações parciais e não abrangem a complexidade do ser humano.</p>
+        <p>O futuro dessas ferramentas dependerá de regulações e debates sobre limites éticos, garantindo que avanços tecnológicos sirvam ao bem-estar da sociedade sem comprometer sua segurança ou autenticidade.</p>
+       
+    </div>
+</div>
+
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>GenCast: IA da Google DeepMind revoluciona previsões meteorológicas</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/09/shutterstock_2372541033.jpg" alt="Imagem representativa sobre o GenCast">
+        <p>A Google DeepMind apresentou uma ferramenta de inteligência artificial chamada GenCast, capaz de realizar previsões meteorológicas precisas para até 15 dias, superando as limitações históricas da ciência atmosférica. Segundo um estudo publicado na revista Nature, o modelo é mais rápido e confiável que os métodos tradicionais, estabelecendo um marco na meteorologia.</p>
+
+        <strong>Como funciona o GenCast:</strong>
+        <p><strong>Desempenho:</strong> Nos testes, o GenCast superou o Ensemble Prediction System, do Centro Europeu de Previsões Meteorológicas de Médio Prazo (ECMWF), em 97,2% dos casos.</p>
+        <p><strong>Eficiência:</strong> O modelo analisa 1,32 mil variáveis atmosféricas, como vento e temperatura, para gerar previsões mais rápidas e precisas.</p>
+        <p><strong>Avanço tecnológico:</strong> Especialistas da DeepMind afirmam que o progresso alcançado nos últimos anos equivale a décadas de melhorias em modelos anteriores.</p>
+
+        <strong>Impacto global:</strong>
+        <p>As previsões de longo prazo são cruciais para mitigar os efeitos de fenômenos climáticos extremos, como tempestades e furacões. Segundo o MIT, melhorias nesse campo podem trazer enormes benefícios socioeconômicos, ajudando populações vulneráveis a se preparar para desastres naturais.</p>
+
+        <strong>Comparativo com outras soluções:</strong>
+        <p>Embora o caos natural da atmosfera limite a confiabilidade de previsões acima de 15 dias, empresas como AccuWeather oferecem estimativas de até 90 dias. No entanto, o nível de precisão do GenCast demonstra que a IA está redefinindo o padrão para previsões de médio prazo.</p>
+
+        <strong>Próximos passos e expectativas:</strong>
+        <p>O aprendizado de máquina está sendo adotado por líderes do setor meteorológico, e o avanço do GenCast ressalta o potencial da IA para enfrentar desafios globais, como mudanças climáticas. Com a adoção de seus recursos por instituições renomadas como o ECMWF, a tecnologia promete abrir um novo capítulo na previsão do tempo.</p>
+        <p>A revolução da meteorologia pela IA reforça o impacto positivo da tecnologia, equilibrando preocupações sobre seus riscos com contribuições práticas para salvar vidas e proteger comunidades.</p>
+    </div>
+</div>
+
+<div id="modal4" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Eric Schmidt alerta sobre os riscos da IA para a saúde mental de jovens</h2>
+        <img src="https://tm.ibxk.com.br/2024/12/03/03143943771404.jpg?ims=1280x480" alt="Imagem representativa sobre IA e saúde mental">
+        <p>Eric Schmidt, ex-CEO do Google, revelou preocupações crescentes sobre o impacto da inteligência artificial na saúde mental de jovens, especialmente da Geração Z. Em entrevista ao podcast The Prof G Show, Schmidt destacou que muitos estão criando "namoradas virtuais" com IA, preferindo essas interações ao invés de relacionamentos reais, o que pode levar a isolamento e outros problemas emocionais.</p>
+
+        <strong>A ascensão dos chatbots românticos:</strong>
+        <p>Jovens homens são os mais suscetíveis a criar vínculos com IA, devido a fatores como menor educação formal comparado às mulheres da mesma faixa etária.</p>
+        <p>Chatbots são usados para simular o "par perfeito", mas promovem desconexão da realidade e solidão extrema.</p>
+
+        <strong>Impactos preocupantes:</strong>
+        <p><strong>Risco à saúde mental:</strong> Schmidt alertou para os perigos de expor crianças a interações com IA sem supervisão, o que pode levá-las a conteúdos prejudiciais.</p>
+        <p><strong>Tragédias associadas:</strong> O caso de Sewell Setzer III, um adolescente que se suicidou após receber mensagens obsessivas de uma IA, reforça a necessidade de regulamentação.</p>
+
+        <strong>Propostas de regulamentação e responsabilidade:</strong>
+        <p>Schmidt sugere que as empresas de tecnologia sejam mais responsabilizadas pelos conteúdos gerados em suas plataformas.</p>
+        <p>Ele também pediu maior vigilância dos pais sobre o uso da IA pelos filhos, devido à dificuldade das empresas em controlar acessos inadequados.</p>
+
+        <strong>O futuro da IA e a sociedade:</strong>
+        <p>A crescente integração de IA na vida cotidiana exige debates urgentes sobre ética e regulamentação. Enquanto essas tecnologias oferecem avanços impressionantes, como apoio emocional e simulações realistas, é essencial mitigar os riscos para preservar o bem-estar das gerações futuras.</p>
+    </div>
+</div>
+
+<div id="modal5" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Anatel aprova mudanças no regulamento de direitos do consumidor</h2>
+        <img src="https://s2-g1.glbimg.com/iNWbz_bf21zrhng70WMk1B4apbw=/0x0:800x553/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2024/H/0/FuAQv7SrOwCoF12Hr6FA/ministerio-publico-do-am-notifica-operadoras-de-telefonia-por-apagao-de-sinal-e-internet-em-coari-foto-divulgacao-mpam.png" alt="Imagem representativa sobre mudanças no RGC da Anatel">
+        <p>A Agência Nacional de Telecomunicações (Anatel) aprovou alterações no Regulamento Geral de Direitos do Consumidor de Serviços de Telecomunicações (RGC), que flexibilizam normas sobre contratos de celulares, internet e TV por assinatura. As mudanças, que entram em vigor em setembro de 2025, favorecem as operadoras, mas geram críticas de especialistas por reduzirem a proteção ao consumidor.</p>
+
+        <strong>Principais mudanças:</strong>
+        <p><strong>Alteração de ofertas durante a vigência do contrato:</strong></p>
+        <ul>
+            <li><strong>Antes:</strong> Operadoras eram proibidas de alterar características como preço e serviços durante o contrato.</li>
+            <li><strong>Agora:</strong> Alterações são permitidas com o consentimento do consumidor, inclusive para incluir itens que possam beneficiá-lo.</li>
+        </ul>
+        <p><strong>Migração automática de planos:</strong></p>
+        <ul>
+            <li><strong>Antes:</strong> Consumidores eram migrados automaticamente para planos de igual ou menor valor, sem prazo de permanência.</li>
+            <li><strong>Agora:</strong> Migração só será possível mediante consentimento prévio no contrato, eliminando a regra de compatibilidade com as necessidades do cliente.</li>
+        </ul>
+        <p><strong>Suspensão por inadimplência:</strong></p>
+        <ul>
+            <li><strong>Antes:</strong> Consumidores inadimplentes tinham direito a receber chamadas e mensagens sem custo durante os primeiros 30 dias de suspensão.</li>
+            <li><strong>Agora:</strong> A regra foi anulada, permitindo cobrança total durante a suspensão dos serviços.</li>
+        </ul>
+        <p><strong>Reajuste de preços:</strong></p>
+        <ul>
+            <li><strong>Antes:</strong> Reajustes eram vinculados à data de contratação do plano, permitindo ajustes anuais previsíveis.</li>
+            <li><strong>Agora:</strong> As operadoras podem definir datas-base para reajustes, dificultando o planejamento financeiro dos consumidores.</li>
+        </ul>
+
+        <strong>Impacto no consumidor:</strong>
+        <p>Especialistas apontam que as mudanças podem confundir os consumidores e abrir margem para práticas abusivas. Segundo o Idec, os mais prejudicados serão os consumidores mais vulneráveis, que já enfrentam dificuldades financeiras e dependem de maior previsibilidade nos contratos.</p>
+
+        <strong>Próximos passos:</strong>
+        <p>O Idec sugere maior transparência nas ofertas e defende que qualquer mudança nos contratos permita ao consumidor optar por continuar ou rescindir o contrato sem penalidades. As novas regras devem exigir atenção redobrada por parte dos clientes e regulamentação mais rígida para evitar abusos.</p>
+    </div>
+</div>
+
+<div id="modal6" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>IA pode gerar perdas bilionárias para criadores até 2028, aponta CISAC</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/06/ia_cantando_musica-1-2048x2048.jpg" alt="Imagem representativa sobre perdas no setor criativo devido à IA">
+        <p>Um estudo da Confederação Internacional de Sociedades de Autores e Compositores (CISAC) aponta que o avanço da inteligência artificial (IA) pode gerar perdas de até €22 bilhões (R$ 139 bilhões) para profissionais da música e do audiovisual até 2028. A expansão do mercado de conteúdo gerado por IA, embora lucrativa para plataformas, ameaça carreiras e meios de subsistência de milhares de criadores.</p>
+
+        <strong>Impactos no setor musical e audiovisual:</strong>
+        <p>O mercado de conteúdo gerado por IA deve crescer de €3 bilhões (R$ 18 bilhões) em 2024 para €64 bilhões (R$ 405 bilhões) em 2028.</p>
+        <p>A IA poderá representar 20% das receitas de plataformas de streaming e 60% das bibliotecas de música até 2028.</p>
+        <p>Músicos podem perder até 24% de sua renda, enquanto profissionais do audiovisual, como tradutores e adaptadores, enfrentam riscos ainda maiores, com 56% da arrecadação em jogo.</p>
+
+        <strong>Concorrência desleal e regulamentação:</strong>
+        <p>A principal preocupação levantada pela CISAC é a reprodução não licenciada de obras humanas, considerada uma forma de concorrência desleal. A confederação enfatiza a necessidade de regulamentar o uso da IA para proteger os direitos dos criadores e mitigar os impactos financeiros e profissionais.</p>
+
+        <strong>Propostas e desafios:</strong>
+        <p>O relatório da CISAC destaca que, sem regulamentação, a tendência é que artistas enfrentem dificuldades para competir com algoritmos capazes de produzir conteúdos em massa, muitas vezes a custos reduzidos. Segundo a entidade, medidas urgentes são necessárias para equilibrar o mercado e garantir uma remuneração justa para os criadores.</p>
+
+        <strong>O futuro da criatividade humana:</strong>
+        <p>Com a crescente adoção da IA na produção de conteúdo, o setor cultural enfrenta um dilema: abraçar a tecnologia como ferramenta ou combatê-la como ameaça. Regulamentações robustas podem ser a chave para proteger a criatividade humana em um cenário dominado por avanços tecnológicos.</p>
+    </div>
+</div>
+
+<div id="modal7" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>OpenAI lança ChatGPT Pro por US$ 200/mês</h2>
+        <img src="https://img.odcdn.com.br/wp-content/uploads/2024/11/chatgpt_gpt_1-e1733423903455-1024x577.jpg" alt="Imagem representativa do lançamento do ChatGPT Pro">
+        <p>A OpenAI anunciou o ChatGPT Pro, um plano premium que custa US$ 200 por mês (cerca de R$ 1.200). A assinatura dá acesso ilimitado ao modelo exclusivo o1, a versão mais avançada da OpenAI, além de funcionalidades como o Modo de Voz Avançado.</p>
+
+        <strong>O que o ChatGPT Pro oferece?</strong>
+        <ul>
+            <li><strong>Modelo o1:</strong> Maior capacidade computacional, ideal para tarefas complexas como ciência de dados, programação e análise jurídica.</li>
+            <li><strong>Versão completa:</strong> Mais rápido, preciso e eficiente em matemática e programação do que a versão preliminar lançada em setembro.</li>
+            <li><strong>Raciocínio visual:</strong> Agora, o o1 consegue oferecer respostas baseadas em imagens, com tempos de resposta mais rápidos.</li>
+            <li><strong>Iniciativa ChatGPT Pro Grants:</strong> Dez assinaturas foram concedidas a pesquisadores médicos nos EUA, com planos de expansão para outras áreas e países.</li>
+        </ul>
+
+        <strong>Quem deve usar?</strong>
+        <p>A OpenAI posiciona o ChatGPT Pro como uma ferramenta para profissionais que buscam tecnologia de ponta para aumentar a produtividade. Pesquisadores, engenheiros e analistas de dados estão entre os principais públicos-alvo.</p>
+
+        <strong>Outras opções de assinatura:</strong>
+        <ul>
+            <li><strong>ChatGPT Plus (US$ 20/mês):</strong> Inclui acesso a modelos avançados, mas não ao o1 completo.</li>
+            <li><strong>Planos Enterprise e Edu:</strong> Acesso ao o1 será liberado em breve para essas categorias.</li>
+        </ul>
+
+        <strong>Novidades em desenvolvimento:</strong>
+        <p>A OpenAI também planeja incluir suporte à navegação na web no ChatGPT. Embora ainda não tenha um cronograma definido, a empresa promete mais funcionalidades para aprimorar a experiência dos usuários.</p>
+
+        <p>O ChatGPT Pro marca um novo patamar para as ferramentas de IA da OpenAI, reforçando seu compromisso em atender demandas de alta performance no mercado de tecnologia.</p>
+    </div>
+</div>
+
+<div id="modal8" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Intel Foundry apresenta inovações com rutênio substrativo</h2>
+        <img src="https://t.ctcdn.com.br/v19MN3tdDE3nuFtegldWSnwA9eg=/1024x576/smart/i850391.jpeg" alt="Imagem representativa sobre os avanços da Intel Foundry">
+        <p>A Intel Foundry revelou inovações promissoras no International Electron Devices Meeting, nos EUA, destacando avanços no uso de rutênio substrativo para interconexões internas de chips. A tecnologia promete melhorar a comunicação entre os componentes em até 25%, reafirmando o papel da Intel como líder em semicondutores.</p>
+
+        <strong>Detalhes da inovação:</strong>
+        <ul>
+            <li>A empresa conseguiu reduzir a capacidade de armazenamento elétrico linha a linha em dimensões menores ou iguais a 25 nm, graças à implementação do rutênio substrativo.</li>
+            <li>Essa melhoria se traduz em comunicações mais rápidas entre os dies dentro de um chip, beneficiando desempenho e eficiência energética.</li>
+        </ul>
+
+        <strong>Intel e o futuro dos semicondutores nos EUA:</strong>
+        <p>Sanjay Natarajan, vice-presidente sênior da Intel Foundry, enfatizou o compromisso da empresa em reforçar a independência americana na fabricação de semicondutores, especialmente com o suporte da Lei de Chips dos EUA. O objetivo é mitigar riscos associados à concentração da produção global em Taiwan, onde a TSMC domina o mercado.</p>
+
+        <strong>Geopolítica e semicondutores:</strong>
+        <p>A tensão crescente entre China e Taiwan torna a iniciativa da Intel ainda mais estratégica para os EUA, que buscam diversificar e fortalecer sua cadeia de suprimentos no setor de tecnologia avançada.</p>
+
+        <p>A Intel Foundry continua investindo em pesquisa e desenvolvimento para manter sua posição competitiva no mercado global, enquanto contribui para a segurança econômica e tecnológica dos EUA.</p>
+    </div>
+</div>
+
+<div id="modal9" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Starlink planeja dobrar operações no Brasil</h2>
+        <img src="https://t.ctcdn.com.br/W2RrTUOlCIRhkZrgh7fW-w7PuoA=/1024x576/smart/i929165.jpeg" alt="Imagem representativa sobre a expansão da Starlink no Brasil">
+        <p>A Starlink, empresa de internet via satélite de Elon Musk, planeja dobrar sua operação no Brasil, adicionando mais 7,5 mil satélites à órbita terrestre sobre o território nacional. A proposta está em análise pela Anatel, que deverá emitir um parecer em 13 de fevereiro de 2025.</p>
+
+        <strong>Situação atual e funcionamento da Starlink:</strong>
+        <ul>
+            <li>Atualmente, a Starlink opera com 6.350 satélites em órbita baixa, oferecendo internet de banda larga para regiões remotas, como áreas rurais e isoladas.</li>
+            <li>Os satélites enviam sinais captados por antenas terrestres, conectando residências e empresas a uma internet de alta velocidade.</li>
+        </ul>
+
+        <strong>Planos futuros: internet direto no celular:</strong>
+        <p>A Starlink está desenvolvendo a tecnologia "Direct to Cell", que permite acesso à internet via satélite diretamente em celulares, eliminando a necessidade de antenas.</p>
+        <ul>
+            <li>Inicialmente, a funcionalidade suporta apenas SMS, mas será expandida para chamadas, dados e dispositivos IoT em 2025.</li>
+        </ul>
+
+        <strong>Concorrência à vista:</strong>
+        <p>A Starlink enfrenta novos desafios no Brasil, especialmente com o interesse da empresa chinesa SpaceSail, que busca autorização para operar no país em parceria com a Telebrás.</p>
+        <ul>
+            <li>A SpaceSail tem atualmente 40 satélites em órbita, com planos para lançar 648 até 2025 e 15 mil até 2030, uma meta ambiciosa para competir com a infraestrutura da Starlink.</li>
+        </ul>
+
+        <strong>Impacto no mercado brasileiro:</strong>
+        <p>Se aprovada, a expansão da Starlink pode aumentar significativamente a conectividade em áreas de difícil acesso no Brasil, impulsionando inclusão digital e melhorando a qualidade da internet no país. A entrada de novos players como a SpaceSail também promete agitar o mercado de internet via satélite, trazendo mais opções e avanços tecnológicos.</p>
+    </div>
+</div>
+
+<div id="modal10" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>CPQD anuncia parceria para impulsionar o 6G no Brasil</h2>
+        <img src="https://t.ctcdn.com.br/KJiJGTRCmae_KBZ5iZzFUfcQsKQ=/1024x576/smart/i340802.jpeg" alt="Imagem representativa sobre avanços do 6G no Brasil">
+        <p>O CPQD (Centro de Pesquisa e Desenvolvimento em Telecomunicações) anunciou uma importante parceria para impulsionar a tecnologia 6G no Brasil. O acordo, no valor de US$ 1,7 milhão, inclui a entrega de equipamentos avançados para o desenvolvimento de redes Open RAN, essenciais para a próxima geração de conectividade móvel.</p>
+
+        <strong>O que é Open RAN?</strong>
+        <ul>
+            <li>Open RAN (Radio Access Network) é uma tecnologia que permite maior flexibilidade e interoperabilidade entre os equipamentos de redes móveis, reduzindo custos e acelerando a implementação de novas gerações de conectividade.</li>
+            <li>Desde 2018, o CPQD trabalha no desenvolvimento do Open RAN, com apoio do Ministério das Comunicações e do Ministério da Ciência, Tecnologia e Inovação (MCTI).</li>
+        </ul>
+
+        <strong>Parceria estratégica Brasil-EUA:</strong>
+        <p>A cooperação internacional foi destacada durante a cerimônia, com a presença de autoridades brasileiras e americanas, incluindo Meredith Sundlof, vice-diretora global da Agência de Cibersegurança dos EUA. O objetivo é expandir o acesso à internet rápida em todo o Brasil, alcançando regiões rurais e urbanas.</p>
+
+        <strong>Impactos esperados:</strong>
+        <ul>
+            <li><strong>Aceleração tecnológica:</strong> O centro de testes equipado permitirá avanços mais rápidos, preparando o Brasil para liderar na implementação do 6G.</li>
+            <li><strong>Inclusão digital:</strong> Com foco em testes além das capitais, a iniciativa busca levar conectividade de ponta a áreas remotas, reduzindo desigualdades digitais.</li>
+        </ul>
+
+        <strong>O futuro do 6G no Brasil:</strong>
+        <p>Com investimentos robustos e cooperação internacional, o Brasil está bem posicionado para se tornar referência no desenvolvimento e implementação do 6G. A tecnologia promete transformar conectividade e serviços digitais, abrindo novas possibilidades em áreas como saúde, educação e automação.</p>
+    </div>
+</div>
+
+
+
+
+<footer>
+    <p>&copy; 2024 Boletim Tecnológico</p>
+</footer>
+
+<!-- Scripts para Modais -->
+<script>
+    const cards = document.querySelectorAll('.card');
+    const modals = document.querySelectorAll('.modal');
+    const closes = document.querySelectorAll('.close');
+
+    cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            modals[index].style.display = 'block';
+        });
+    });
+
+    closes.forEach((close, index) => {
+        close.addEventListener('click', () => {
+            modals[index].style.display = 'none';
+        });
+    });
+
+    window.onclick = function(event) {
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
